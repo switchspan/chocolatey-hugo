@@ -7,17 +7,17 @@
     <authors>Steve Francia and friends</authors>
     <owners>Ken Taylor</owners>
     <summary>Introducing Hugo, a new idea around making website creation simple again. Hugo flexibly works with many formats and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity and makes building a website fun again. Hugo is a fast static website engine, much like Jekyll, Octopress or Pretzel. It is written in the Google Go programming language and runs as a native binary on several platforms (Windows, Mac, Linux, etc.)</summary>
-    <description>Hugo: A Fast & Modern Static Website Engine</description>
+    <description>Hugo: A Fast and Modern Static Website Engine</description>
     <projectUrl>http://gohugo.io/</projectUrl>
     <tags>hugo blog html site static engine fast</tags>
     <copyright>Copyright © Steve Francia 2013–2014</copyright>
     <licenseUrl>http://gohugo.io/meta/license/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <!--<iconUrl>https://raw.github.com/__CHOCO_PKG_OWNER_REPO__/master/hugo/hugo.png</iconUrl>-->
+    <iconUrl>https://raw.githubusercontent.com/switchspan/chocolatey-hugo/master/images/hugo_128px.png</iconUrl>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
-    <releaseNotes>Initial creation of Hugo package</releaseNotes>
+    <releaseNotes>Initial creation of Hugo chocolatey package</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
