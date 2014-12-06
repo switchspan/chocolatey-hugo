@@ -3,21 +3,21 @@
   <metadata>
     <id>hugo</id>
     <title>hugo</title>
-    <version>__REPLACE__</version>
-    <authors>__REPLACE__</authors>
+    <version>0.12</version>
+    <authors>Steve Francia and friends</authors>
     <owners>Ken Taylor</owners>
-    <summary>hugo</summary>
-    <description>hugo</description>
-    <projectUrl>__REPLACE__</projectUrl>
-    <tags>hugo admin</tags>
-    <copyright></copyright>
-    <licenseUrl>__REPLACE__</licenseUrl>
+    <summary>Introducing Hugo, a new idea around making website creation simple again. Hugo flexibly works with many formats and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity and makes building a website fun again. Hugo is a fast static website engine, much like Jekyll, Octopress or Pretzel. It is written in the Google Go programming language and runs as a native binary on several platforms (Windows, Mac, Linux, etc.)</summary>
+    <description>Hugo: A Fast & Modern Static Website Engine</description>
+    <projectUrl>http://gohugo.io/</projectUrl>
+    <tags>hugo blog html site static engine fast</tags>
+    <copyright>Copyright © Steve Francia 2013–2014</copyright>
+    <licenseUrl>http://gohugo.io/meta/license/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!--<iconUrl>https://raw.github.com/__CHOCO_PKG_OWNER_REPO__/master/hugo/hugo.png</iconUrl>-->
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Initial creation of Hugo package</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
