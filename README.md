@@ -13,6 +13,8 @@ Chocolatey install for Hugo
 
 - Run `choco pack` in the same directory as `hugo.nuspec`
 
+_Note: If you are running this from a command prompt, you might want to run it as Administrator._
+
 ## Test the package
 
 _Note: testing should probably be done on a Virtual Machine_
