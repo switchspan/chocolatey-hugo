@@ -1,9 +1,9 @@
 ﻿#NOTE: Please remove any commented lines to tidy up prior to releasing the package, including this one
-$version = '0.14'
+$version = '0.15'
 $packageName = 'hugo' 
 $installerType = 'exe'
-$url = 'https://github.com/spf13/hugo/releases/download/v0.14/hugo_0.14_windows_386.zip' # download url
-$url64 = 'https://github.com/spf13/hugo/releases/download/v0.14/hugo_0.14_windows_amd64.zip' # 64bit URL here or remove - if installer decides, then use $url
+$url = 'https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_windows_386_32-bit-only.zip' # download url
+$url64 = 'https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_windows_amd64.zip' # 64bit URL here or remove - if installer decides, then use $url
 $silentArgs = '/s' # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT" # try any of these to get the silent installer #msi is always /quiet
 $validExitCodes = @(0) #please insert other valid exit codes here, exit codes for ms http://msdn.microsoft.com/en-us/library/aa368542(VS.85).aspx
 $destinationPath = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
