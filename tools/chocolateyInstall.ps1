@@ -8,15 +8,7 @@ $silentArgs = '/s' # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT" # try any 
 $validExitCodes = @(0) #please insert other valid exit codes here, exit codes for ms http://msdn.microsoft.com/en-us/library/aa368542(VS.85).aspx
 $destinationPath = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
-Install-ChocolateyZipPackage "$packageName" "$url" "$destinationPath" "$url64"
+Install-ChocolateyZipPackage -PackageName "$packageName" -Url "$url" -UnzipLocation "$destinationPath" -Url64 "$url64"
 
-try {
-  # Rename the downloaded hugo file name to a sane filename
-  Get-ChildItem -Path "$($destinationPath)\*.exe" | Rename-Item  -NewName "hugo.exe"
-
-  # the following is all part of error handling
-  Write-ChocolateySuccess "$packageName"
-} catch {
-  Write-ChocolateyFailure "$packageName" "$($_.Exception.Message)"
-  throw
-}
+# Rename the downloaded hugo file name to a sane filename
+Get-ChildItem -Path "$($destinationPath)\*.exe" | Rename-Item  -NewName "hugo.exe"
