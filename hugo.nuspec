@@ -3,7 +3,7 @@
   <metadata>
     <id>hugo</id>
     <title>hugo</title>
-    <version>0.17</version>
+    <version>0.18.1</version>
     <authors>Steve Francia and friends</authors>
     <owners>Ken Taylor</owners>
     <summary>Introducing Hugo, a new idea around making website creation simple again. Hugo flexibly works with many formats and is ideal for blogs, docs, portfolios and much more. Hugo’s speed fosters creativity and makes building a website fun again. Hugo is a fast static website engine, much like Jekyll, Octopress or Pretzel. It is written in the Google Go programming language and runs as a native binary on several platforms (Windows, Mac, Linux, etc.)</summary>
