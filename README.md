@@ -1,7 +1,7 @@
 chocolatey-hugo
 ===============
 
-Chocolatey install for the [Hugo][hugo] static site generator by [Steve Francia][francia]
+Chocolatey install for Hugo
 
 ## Modifying the package
 
@@ -33,6 +33,3 @@ _Note: testing should probably be done on a Virtual Machine_
 See the [Chocolatey Packages Quick Start][quickstart] for more information.
 
 [quickstart]: https://github.com/chocolatey/choco/wiki/CreatePackagesQuickStart
-[hugo]: https://gohugo.io/
-[choco]: http://chocolatey.org/
-[francia]: http://spf13.com
