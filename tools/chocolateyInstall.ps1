@@ -12,6 +12,12 @@ elseif ($hugoExe.Count -lt 1)
     Write-Error -Message "more than one hugo exe found, please contact the maintainer of the package" -Category ResourceUnavailable
 }
 
+if(Test-Path "$($MyInvocation.MyCommand.Definition)\hugo.exe")
+{
+    Write-Host "removing old hugo exe in $($MyInvocation.MyCommand.Definition)"
+    Remove-Item "$($MyInvocation.MyCommand.Definition)\hugo.exe" -Force
+}
+
 Write-Host "found hugo exe in $($hugoExe.FullName)"
 Write-Host "attempting to rename it to hugo.exe" 
 Rename-Item -Path $hugoExe.FullName -NewName hugo.exe
