@@ -1,2 +1,20 @@
-﻿$ErrorActionPreference = 'Stop'; # stop on all errors
-Install-ChocolateyZipPackage -packageName 'hugo' -UnzipLocation $(Split-Path -Parent $MyInvocation.MyCommand.Definition) -Url 'https://github.com/spf13/hugo/releases/download/v0.20.5/hugo_0.20.5_Windows-32bit.zip' -checksum '9237B0281FF97EEBB29FFCB6A73DD712F7F5EACCD9357E2593D8D2F418DCF979' -checksumType 'sha256'-Url64 'https://github.com/spf13/hugo/releases/download/v0.20.5/hugo_0.20.5_Windows-64bit.zip' -checksum64 '194AF4D59D76D5A4BB1E3F2E594090D47F9E1CFD4C7790FC0D0B6D6A7E153EFB' -checksumType64 'sha256'
+﻿$ErrorActionPreference = 'Stop'
+
+$packageName= $env:ChocolateyPackageName
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$url        = "https://github.com/spf13/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-32bit.zip"
+$url64      = "https://github.com/spf13/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-64bit.zip"
+
+$packageArgs = @{
+  packageName   = $packageName
+  unzipLocation = $toolsDir
+  url           = $url
+  url64bit      = $url64
+
+  checksum      = '5F934C4B526C09D1A9AA31544C6EBC80812A0A2058D1304E855B8644DA2CEC48'
+  checksumType  = 'sha256'
+  checksum64    = '8315AD92DA1F21932F86E85B4A816108209AE8A305270E975B30396F67A37D19'
+  checksumType64= 'sha256'
+}
+
+Install-ChocolateyZipPackage @packageArgs
