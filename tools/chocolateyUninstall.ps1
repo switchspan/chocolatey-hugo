@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'; # stop on all errors
+$ErrorActionPreference = 'Stop';
 
 $hugoExe = Get-ChildItem $(Split-Path -Parent $MyInvocation.MyCommand.Definition) | Where-Object -Property Name -Match "hugo.exe"
 
