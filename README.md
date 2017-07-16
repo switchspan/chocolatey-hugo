@@ -15,7 +15,7 @@ _Note:_ Make sure you install checksum (`choco install checksum`) and calculate 
 ### Generating Checksum
 Use the `checksum` tool to calculate the sha256 checksum for each of the zip files from the hugo releases:
 
-`C:\DirectoryWhereHugoZipIsAt>checksum -f=".\hugo_0.20.5_Windows-32bit.zip" -t=sha256`
+`C:\DirectoryWhereHugoZipIsAt>checksum -f=".\hugo_0.25.1_Windows-32bit.zip" -t=sha256`
 
 ## Build the package
 
