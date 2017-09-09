@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.25.1</version>
+    <version>0.26</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,22 +119,76 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.25.1** July 10th 2017
+    <releaseNotes># **0.26** August 7th 2017
 
-This is a bug-fix release with a couple of important fixes.
+Hugo 0.26 is the Language Style Edition.
+
+This release brings a choice of AP Style or Chicago Style Title Case (8fb594bf #989). You can also now configure Blackfriday to render « French Guillemets » (cb9dfc26 #3725). To enable French Guillemets, put this in your site config.toml:
+
+[blackfriday]
+angledQuotes = true
+smartypantsQuotesNBSP = true
+
+Oh, and this release also fixes it so you should see no ugly long crashes no more when you step wrong in your templates (794ea21e).
+
+Hugo 0.26 represents 46 contributions by 11 contributors to the main Hugo code base.
+
+@bep leads the Hugo development with a significant amount of contributions, but also a big shoutout to @anthonyfok, @jorinvo, and @digitalcraftsman for their ongoing contributions. And as always a big thanks to @digitalcraftsman for his relentless work on keeping the documentation and the themes site in pristine condition.
+
+Many have also been busy writing and fixing the documentation in hugoDocs,
+which has received 838 contributions by 30 contributors. A special thanks to @rdwatters, @bep, @digitalcraftsman, and @budparr for their work on the documentation site.
+
+This may look like a Waiting Sausage, a barbecue term used in Norway for that sausage you eat while waiting for the steak to get ready. And it is: We're working on bigger and even more interesting changes behind the scenes. Stay tuned!
 
 Hugo now has:
 
-* 18277+ stars
-* 456+ contributors
-* 170+ themes
+*18802+ stars
+*457+ contributors
+*175+ themes
 
-Fixes
+## Notes
 
-* Fix union when the first slice is empty dbbc5c48 @bep #3686
-* Navigate to changed on CREATE When working with content from IntelliJ IDE, like WebStorm, every file save is followed by two events: "RENAME" and then "CREATE". 7bcc1ce6 @miltador
-* Final (!) fix for issue with escaped JSON front matter 7f82b41a @bep #3682
-* Fix issue with escaped JSON front matter 84db6c74 @bep #3682
+sourceRelativeLinks has been deprecated for a while and has now been removed. 9891c0fb @bep #3766
+The title template function and taxonomy page titles now default to following the AP Stylebook for title casing. To override this default to use the old behavior, set titleCaseStyle to Go in your site configuration. 8fb594bf @bep #989
+
+## Enhancements
+
+### Templates
+
+Use hash for cache key 6cd33f69 @RealOrangeOne #3690
+Add some empty slice tests to intersect e0cf2e05 @bep #3686
+
+### Core
+
+Support reflinks starting with a slash dbe63970 @bep #3703
+Make template panics into nice error messages 794ea21e @bep
+
+### Other
+
+* Make the title case style guide configurable 8fb594bf @bep #989
+* Add support for French Guillemets cb9dfc26 @bep #3725
+* Add support for French Guillemets c4a0b6e8 @bep #3725
+* Switch from fork bep/inflect to markbates/inflect 09907d36 @jorinvo
+* Remove unused dependencies from vendor.json 9b4170ce @jorinvo
+* Add --debug option to be improved on over time aee2b067 @maxandersen
+* Reduce Docker image size from 277MB to 27MB bfe0bfbb @ellerbrock #3730#3738
+* Optimize Docker image size 606d6a8c @ellerbrock #3674
+* Add --trace to asciidoctor args b60aa1a5 @miltador #3714
+* Add script to pull in docs changes ff433f98 @bep
+* Add HasShortcode deccc540 @bep #3707
+* Improve the twitter card template 00b590d7 @bep #3711
+* Add GOEXE to support building with different versions of go ea5e9e34 @mdhender
+
+## Fixes
+
+### Templates
+
+* Fix intersect on []interface{} handling 55d0b894 @moorereason #3718
+
+### Other
+
+* Fix broken TaskList in Markdown 481924b3 @mpcabd #3710
+
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
