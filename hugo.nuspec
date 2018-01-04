@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.32</version>
+    <version>0.32.1</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,22 +119,13 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.32** December 31st 2017
+    <releaseNotes># **0.32.1** January 2nd 2018
 
-Hugo 0.32 features Page Bundles and Image Processing by @bep, which is very cool and useful on so many levels. Read about it in more detail in the Hugo documentation, but some of the highlights include:
+This fixes 2 bugs from the Hugo 0.32 release.
 
-Automatic bundling of a content page with its resources. Resources can be anything: Images, JSON files ... and also other content pages.
-A Resource will have its RelPermalink and Permalink relative to the "owning page". This makes the complete article with both text and images portable (just send a ZIP file with a folder to your editor), and it can be previewed directly on GitHub.
-Powerful and simple to use image processing with the new .Resize, .Fill, and .Fit methods on the new Image resource.
-Full support for symbolic links inside /content, both for regular files and directories.
-The built-in benchmarks in Hugo show that this is also the fastest and most memory effective Hugo version to date. But note that the build time total reported in the console is now adjusted to be the real total, including the copy of static files. So, if it reports more milliseconds, it is still most likely faster ...
+Fix image processing from shortcodes in non-server mode. @bep #4202
+Fix broken hugo --renderToMemory. Note that this is only useful for benchmark testing, as there is no easy way to actually view the result. d36d71ed @bep #4212
 
-This release represents 30 contributions by 7 contributors to the main Hugo code base.
-
-@bep leads the Hugo development with a significant amount of contributions, but also a big shoutout to @betaveros, @chaseadamsio, and @kropp. And as always big thanks to @digitalcraftsman for his relentless work on keeping the documentation and the themes site in pristine condition.
-
-Many have also been busy writing and fixing the documentation in hugoDocs,
-which has received 17 contributions by 7 contributors. A special thanks to @bep, @felicianotech, @maiki, and @carlchengli for their work on the documentation site.
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
