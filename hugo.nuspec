@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.32.3</version>
+    <version>0.32.4</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,20 +119,12 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.32.3** January 8th 2018
+    <releaseNotes># **0.32.4** January 9th 2018
 
-Hugo 0.32 was a big and really cool release, and the Hugo Forum has been filled with questions from people wanting to upgrade their Hugo sites to be able to use the new image processing feature etc.
+This is a bug-fix release with two of important fixes.
 
-And with that we have discovered some issues, which this release should fix, mostly releated to multilingual sites:
-
-* Fix multihost detection for sites without language definition 8969331f @bep #4221
-* Fix hugo benchmark --renderToMemory 059e8458 @bep #4218
-* Fix URLs for bundle resources in multihost mode ab82a27d @bep #4217
-* Fix sub-folder baseURL handling for Page resources f25d8a9e @bep #4228
-* Avoid processing and storing same image for each language 4b04db0f @bep #4231
-* Resources.ByType should return Resources 97c1866e @bep #4234
-* Report build time on config.toml change 6feb1387 @bep #4232#4224
-* Fix handling of mixed-case taxonomy folders with content file 2d3189b2 @bep #4238
+* Fix non-ASCII path handling for Page resources f0eecc6a @bep #4241
+* Fix --cleanDestinationDir 5235a5bf @biodranik #4246#4248
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
