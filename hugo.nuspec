@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.32.4</version>
+    <version>0.33</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,12 +119,36 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.32.4** January 9th 2018
+    <releaseNotes># **0.33** January 18th 2018
 
-This is a bug-fix release with two of important fixes.
+## Enhancements
 
-* Fix non-ASCII path handling for Page resources f0eecc6a @bep #4241
-* Fix --cleanDestinationDir 5235a5bf @biodranik #4246#4248
+### Templates
+
+* Respect Type and Layout for list template selection 51dd462c @bep #3005#3245
+
+### Core
+
+* Allow url in front matter for list type pages 8a409894 @bep #4263
+* Improve .Site.GetPage for regular translated pages. Before this change it was not possible to say "get me the current language edition of the given content page if possible." Now you can do that by doing a lookup without any extensions: .Site.GetPage "page" "post/mypost" 9409bc0f @bep #4285
+* Add front matter metadata to Resource 20c9b6ec @bep #4244
+* Implement Resources.ByPrefix 46db900d @bep #4266
+* Make GetByPrefix work for Page resources 60c9f3b1 @bep #4264
+* Make Resources.GetByPrefix case insensitive db85e834 @bep #4258
+* Update Chroma and other third-party deps 64f0e9d1 @bep #4267
+* Remove superflous BuildDate logic 13d53b31 @bep #4272
+* Run benchmarks 3 times b6ea6d07 @bep
+* Support uglyURLs per section 57e10f17 @bep #4256
+* Update CONTRIBUTING.md 1046e936 @vassudanagunta
+* Support offline builds d5803da1 @vassudanagunta
+
+## Fixes
+
+* Fix handling of mixed-case taxonomy folders with content file 2d3189b2 @bep #4238
+* Fix handling of very long image file names ecaf1451 @bep #4261
+* Update Afero to avoid panic on "file name is too long" f8a119b6 @bep #4240
+* And now really fix the server watch logic d4f8f88e @bep #4275
+* Fix server without watch 4e524ffc @bep #4275
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
