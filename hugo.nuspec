@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.35</version>
+    <version>0.36.1</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,59 +119,14 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.35** January 31st 2018
-
-## Notes
-
-* Deprecate useModTimeAsFallback adfd4370 @bep #4351
-* Deprecate CLI flags canonifyURLs, pluralizeListTitles, preserveTaxonomyNames, uglyURLs f08ea02d @bep #4347
-* Remove undraft command 2fa70c93 @robertbasic #4353
-
-## Enhancements
-
-### Templates
-
-* Update Twitter card to also consider images in .Resources 25d691da @bep #4349
-* Seed random on init only 83c761b7 @liguoqinjim
-* Remove duplicate layout lookup layouts b2fcbb1f @bep #4319
-* Add "removable-media" interface to snapcraft.yaml f0c0ece4 @anthonyfok #3837
-
-### Other
-
-* Add a way to disable one or more languages 6413559f @bep #4297#4329
-* Handle newly created files in Fast Render Mode 1707dae8 @yanzay #4339
-* Extract the Fast Render Mode logic into a method 94e736c5 @bep #4339
-* Remove unused code ae5a45be @bep
-* Add the last lookup variant for the GetPage index 3446fe9b @bep #4312
-* Simplify bundle lookup via .Site.GetPage, ref, relref 517b6b62 @bep #4312
-* Remove some now superflous Fast Render Mode code feeed073 @bep #4339
-* Make resource counters for name and title independent df20b054 @bep #4335
-* Provide .Name to the archetype templates 863a812e @bep #4348
-* Only set url if permalink in metadata and remove duplicate confirm msg 3752348e @lildude #1887
-* Start Resources :counter first time they're used 7b472e46 @bep #4335
-* Update to Go 1.9.3 a91aba1c @bep #4328
-* Support pages without front matter 91bb774a @vassudanagunta #4320#4320
-* Add page metadata dates tests 3f0379ad @vassudanagunta
-* Re-generate CLI docs 1e27d058 @bep
-* Remove and update deprecation status d418c2c2 @bep
-* Shorten the stale setup 4a7c2b36 @bep
-* Add a GetPage to the site benchmarks a1956391 @bep
-* Add headless bundle support 0432c64d @bep #4311
-* Merge matching resources params maps 5a0819b9 @bep #4315
-* Add some general code contribution criterias 78c86330 @bep
-* Tighten page kind logic, introduce tests 8125b4b0 @vassudanagunta
+    <releaseNotes># **0.36.1** Feb 15th 2018
 
 ## Fixes
 
-* Fix robots.txt in multihost mode 4d912e2a @bep #4193
-* Fix --uglyURLs from comand line regression 016398ff @bep #4343
-* Avoid unescape in highlight ebdd8cba @bep #4219
-* Fix Docker build a34213f0 @skoblenick #4076#4077
-* Fix language params handling ae742cb1 @bep #4356#4352
-* Fix handling of top-level page bundles 4eb2fec6 @bep #4332
-* Fix baseURL server regression for multilingual sites ed4a00e4 @bep #4333
-* Fix "date" page param 322c5672 @vassudanagunta #4323
-* Fix typo in comment 912147ab @yanzay
+* Fix multi-threaded image processing issue d8fdffb5 @bep #4404
+* Improve error message in .Render 08521dac @bep
+* Bump Travis/Snapcraft to Go 1.9.4 fc23a80f @bep
+* Improve error processing error message 2851af02 @bep
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
