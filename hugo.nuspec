@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.36.1</version>
+    <version>0.37.1</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,14 +119,13 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.36.1** Feb 15th 2018
+    <releaseNotes># **0.37.1** Feb 27th 2018
 
 ## Fixes
 
-* Fix multi-threaded image processing issue d8fdffb5 @bep #4404
-* Improve error message in .Render 08521dac @bep
-* Bump Travis/Snapcraft to Go 1.9.4 fc23a80f @bep
-* Improve error processing error message 2851af02 @bep
+This is a bug-fix release with a one important fix:
+
+* Image content such as SVG cannot be scaled with the built-in image processing methods, but it should still be possible to use them as page resources. This was a regression in Hugo 0.37 and is now fixed. ba94abbf @bep #4455
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

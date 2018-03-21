@@ -11,9 +11,9 @@ $packageArgs = @{
   url           = $url
   url64bit      = $url64
 
-  checksum      = '86adc4b67ab88f484ab852991de021e94a3d1fab6627ec1c59450da8a908cce5'
+  checksum      = 'a10a3648d33cb957ee213adaf6b840a2be261bbd00281929a4903da6bb2b67c0'
   checksumType  = 'sha256'
-  checksum64    = '500ed044a720b1a4b018a54ad9bf1323d2e385e27816e811145c4262305fcb79'
+  checksum64    = '88cbdba01b1305134369754ad9c9005af68aaa45e0ce5195ead2264ab5bb3407'
   checksumType64= 'sha256'
 }
 
