@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.38</version>
+    <version>0.38.1</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,41 +119,22 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.38** April 2nd 2018
+    <releaseNotes># **0.38.1** April 3rd 2018
 
 ## Notes
 
-Hugo now allows partial redefinition outputs in your site configuration. This is what most people would expect, but it is still a change in behaviour. For details, see #4487
-Before this release, Hugo flattened URLs of processed images in sub-folders. This worked fine but was not intentional. See #4502.
+This is a bug-fix that is mainly motivated by some issues with server live reloading introduced in Hugo 0.38.
 
-## Enhancements
+* Fix livereload for the home page bundle f87239e4 @bep #4576
+* Fix empty BuildDate in "hugo version" 294c0f80 @anthonyfok
+* Fix some livereload content regressions a4deaeff @bep #4566
+* Update github.com/bep/gitmap to fix snap build 4d115c56 @anthonyfok #4538
+* Fix two tests that are broken on Windows 26f34fd5 @neurocline
 
-* Allow themes to define output formats, media types and params e9c7b620 @bep #4490
-* Allow partial redefinition of the ouputs config f8dc47ee @bep #4487
-* Add a way to merge pages by language ffaec4ca @bep #4463
-* Extract date and slug from filename 68bf1511 @bep #285#3310#3762#4340
-* Add Delete method to delete key from Scratch e46ab29b @paulcmal
-* Simplify Prev/Next 79dd7cb3 @bep
-* List Chroma lexers 2c54f1ad @bep #4554
-* Add support for a contentDir set per language eb42774e @bep #4523#4552#4553
-* Update Chroma 7a634898 @bep #4549
-* Add .Site.IsServer 1823c053 @felicianotech #4478
-* Move to Ubuntu Trusty image 511d5d3b @anthonyfok
-* Bump some deprecations b6798ee8 @bep
-* Update Chroma to get Go template support 904a3d9d @bep #4515
-* Recover from error in server f0052b6d @bep #4516
-* Spring test cleaning, take 2 da880157 @bep
-* Add docs for lang.Merge 70005364 @bep
-* Remove archetype title/date warning ac12d51e @bep #4504
-* Add docs on the new front matter configuration 0dbf79c2 @bep #4495
-* Refactor the GitInfo into the date handlers ce6e4310 @bep #4495
-* Do not print build total when --quiet is set 50a03a5a @bep #4456
+This release also contains some improvements:
 
-## Fixes
-
-* Fix freeze in invalid front matter error case 93e24a03 @bep #4526
-* Fix path duplication/flattening in processed images 3fbc7553 @bep #4502#4501
-* Fix SVG and similar resource handling ba94abbf @bep #4455
+* Add bash completion 874159b5 @anthonyfok
+* Handle mass content etc. edits in server mode 730b66b6 @bep #4563
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
