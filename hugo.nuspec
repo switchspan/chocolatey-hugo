@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.38.2</version>
+    <version>0.39</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,18 +119,69 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.38.2** April 8th 2018
+    <releaseNotes># **0.39** April 16th 2018
 
 ## Notes
 
-This is a bug-fix release with a couple of important fixes:
 
-* Fix handling of the --contentDir and possibly other related flags 080302eb @bep #4589
-* Fix handling of content files with "." in them 2817e842 @bep #4559
+    The main.Execute function now returns a Response object and the global Hugo variable is removed. This is only relevant for people building some kind of API around Hugo.
+    Remove deprecated File.Bytes 94c8b29c @bep
 
-Also in this release:
+### Enhancements
+#### Templates
 
-* Set .Parent in bundled pages to its owner 6792d86a @bep #4582
+    * Add anchorize template func 4dba6ce1 @bep
+    * Add path.Join 880ca19f @bep
+    * Add path.Split template func 01b72eb5 @bep
+
+### Other
+
+    * Implement Resource.Content 0e7716a4 @bep #4622
+    * Make Page.Content a method that returns interface{} 417c5e2b @bep #4622
+    * Remove accidental and breaking space in baseURL flag 1b4e0c41 @bep #4607
+    * Properly handle CLI slice arguments 27a524b0 @bep #4607
+    * Correctly handle destination and i18n-warnings bede93de @bep #4607
+    * Allow "*/" inside commented out shortcodes 14c35c8a @bep #4608
+    * Make commands.Execute return a Response object 96689a5c @bep #4598
+    * Remove some TODOs e7010c1b @bep #4598
+    * Add basic server test a7d00fc3 @bep #4598
+    * Remove the Hugo global b110d0ae @bep #4598
+    * Make the limit command work again 73825cfc @bep #4598
+    * Move the commands related logic to its own file a8f7fbbb @bep #4598
+    * Add CLI tests e8d6ca95 @bep #4598
+    * Make the hugo command non-global 4d32f2fa @bep #4598
+    * Extract some common types into its own file 018602c4 @bep #4598
+    * Make the server command non-global 2f0d98a1 @bep #4598
+    * Make the gen commands non-global e0621d20 @bep #4598
+    * Make the list commands non-global e26a8b24 @bep #4598
+    * Make the import commands non-global 2a2c9838 @bep #4598
+    * Make the config command non-global 15b1e269 @bep #4598
+    * Make the new commands non-global 56a13080 @bep #4598
+    * Make convert command non-global 4b780ca7 @bep #4598
+    * Make more commands non-global 7bc5e89f @bep #4598
+    * Make benchmark non-global fdf1d94e @bep #4598
+    * Start of flag cleaning 1157fef8 @bep #4598
+    * Use short date format in CLI docs e614d8a5 @bep #4598
+    * Update README.md fca49d6c @thedodobird2
+    * Sync dependencies 0e8b3cbc @bep
+    * Bump Go versions 230f2b8c @bep #4545
+    * Add bash completion 874159b5 @anthonyfok
+    * Handle mass content etc. edits in server mode 730b66b6 @bep #4563
+
+### Fixes
+
+    * Fix livereload of bundled pages f3775877 @bep #4607
+    * Do not reset .Page.Scratch on rebuilds 61d52f14 @bep #4627
+    * Fix failing Travis server test 9c782d51 @bep
+    * Fix the config command f396cffa @bep #4598
+    * Fix some flag diff 24d5c219 @bep #4598
+    * Fix TestFixURL 1e233b1c @bep #4598
+    * Disable shallow clone to fix TestPageWithLastmodFromGitInfo 094ec171 @anthonyfok #4584
+    * Fix livereload for the home page bundle f87239e4 @bep #4576
+    * Fix empty BuildDate in "hugo version" 294c0f80 @anthonyfok
+    * Fix some livereload content regressions a4deaeff @bep #4566
+    * Fix two tests that are broken on Windows 26f34fd5 @neurocline
+
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
