@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.42</version>
+    <version>0.42.1</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,41 +119,14 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.42** June 12th 2018
+    <releaseNotes># **0.42.1 ** June 13th 2018
 
 ## Notes
 
-    * The speakerdeck shortcode is removed. It didn't work properly, so is isn't expected to be in wide use. If you use it, you will get a build error. You will either have to remove its usage or add a speakerdeck shortcode to your own project or theme.
-    * We have now virtualized the filesystems for project and theme files. This makes everything simpler, faster and more powerful. But it also means that template lookups on the form {{ template “theme/partials/pagination.html” . }} will not work anymore. That syntax has never been documented, so it's not expected to be in wide use. {{ partial "pagination.html" . }} will give you the most specific version of that partial.
+    This is a bug-fix release with two fixes:
 
-## Enhancements
-
-    * Always load GA script over HTTPS 2e6712e2 @coliff
-    * Remove speakerdeck shortcode 65deb72d @onedrawingperday #4830
-    * Add strings.RuneCount 019bd557 @theory
-    * Add strings.Repeat 13435a6f @theory
-    * Reset Page's main output on server rebuilds dc4226a8 @bep #4819
-    * Create LICENSE rather than LICENSE.md in "new theme" ed4a345e @anthonyfok #4623
-    * Create _default/baseof.html in "new theme" 9717ac7d @anthonyfok #3576
-    * Add tweet_simpleshortcode 07b96d16 @onedrawingperday
-    * Make "new theme" feedback more intuitive 692ec008 @anthonyfok
-    * Move nextStepsText() to new_site.go d3dd74fd @anthonyfok
-    * Add support for theme composition and inheritance 80230f26 @bep #4460#4450
-    * Add vimeo_simple 8de53244 @onedrawingperday #4749
-    * Add a BlackFriday option for rel="noreferrer" on external links 20cbc2c7 @stefanneuhaus #4722
-    * Add a BlackFriday option for rel="nofollow" on external links 7a619264 @stefanneuhaus #4722
-    * Update Chroma b5b36e32 @bep #4779
-    * Enhance Page and Resource String() 4f0665f4 @vassudanagunta
-    * Update theme documentation c74b0f8f @bep #4460
-
-## Fixes
-
-    * Make sure that .Site.Taxonomies is always set on rebuilds 6464981a @bep #4838
-    * Reset the "distinct error logger" on rebuilds bf5f10fa @bep #4818
-    * Remove frameborder attr YT iframe + CSS fixes ceaff7ca @onedrawingperday
-    * Fix vimeo_simple thumb scaling b84389c5 @onedrawingperday
-    * Fix typo instagram_simple d68367cb @onedrawingperday
-    * Prevent isBaseTemplate() from matching "baseof" in dir c3115292 @anthonyfok #4809
+    * Reset the global pages cache on server rebuilds 128f14ef @bep #4845
+    * Do not fail server build when /static is missing 34ee27a7 @bep #4846
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
