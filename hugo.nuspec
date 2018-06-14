@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.40.3</version>
+    <version>0.41</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,11 +119,47 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.40.3** April 9th 2018
+    <releaseNotes># **0.41** May 25th 2018
 
 ## Notes
 
-    Hugo 0.40.3 fixes a possible .Content truncation issue introduced in 0.40.1 90d0d830 @bep #4706. This should be very rare. It has been reported by only one user on a synthetic site. We have tested a number of big sites that does not show this problem with 0.40.2, but this is serious enough to warrant a patch release.
+    
+    We have fixed an issue where we sent the wrong .Site object into the archetype templates used in hugo new. This meant that if you wanted to access site params and some other fields you needed to use .Site.Info.Params etc. This release fixes that so now you can use the same construct in the archetype templates as in the regular templates.
+
+## Enhancements
+
+    * Alias tweet shortode to twitter 3bfe8f4b @bep #4765
+    * Adjust GA templates f45b522e @bep #4616
+    * Wrap the relevant templates with the privacy policy disable check 67892073 @bep #4616
+    * Extract internal templates 34ad9a4f @bep #4457
+    * Use double quotes instead of back quotes b2b500f5 @anthonyfok
+    * Provide the correct .Site object to archetype templates ab02594e @bep #4732
+    * Document the GDPR Privacy Config c71f201f @bep #4751
+    * Add no-cookie variants of the Google Analytics templates [a51945e] (a51945e) @bep #4775
+    * Remove youtube_simple for now 448081b8 @bep #4751
+    * Add anonymizeIP to GA privacy config 1f1d955b @bep #4751
+    * Support DNT in Twitter shortcode for GDPR 9753cb59 @bep #4765
+    * Regenerate embedded templates 6aa2c385 @bep #4761
+    * Add instagram_simple shortcode 9ad46a20 @bep #4748
+    * Go fmt 4256de33 @bep
+    * Remove the id from youtube_simple bed7a0fa @bep #4751
+    * Add an unified .Site.Config with a services section 4ddcf52c @bep #4751
+    * Move the privacy config into a parent 353148c2 @bep #4751
+    * Make the simple mode YouTube links schemaless 69ee6b41 @bep #4616
+    * Add YouTube shortcode simple mode 88e35686 @bep #4616
+    * Do not return error on .Get "class" and vice versa in shortcodes 2f17f937 @bep #4745
+    * Create SUPPORT.md 0a7027e2 @coliff
+    * Add PrivacyEnhanced mode for YouTube to the GDPR Policy 5f24a2c0 @bep #4616
+    * Add RespectDoNotTrack to GDPR privacy policy for Google Analytics 71014201 @bep #4616
+    * Add the foundation for GDPR privacy configuration 0bbdef98 @bep #4616
+    * Show site build warning in TestPageBundlerSiteRegular 9bd4236e @anthonyfok #4672
+    * Do not show empty BuildDate in version 4eedb377 @anthonyfok
+    * Improve markup determination logic 2fb9af59 @vassudanagunta
+    * Update CONTRIBUTING.md b6ededf0 @domdomegg
+
+## Fixes
+
+    * Avoid ANSI character output on Windows 568b4335 @LorenzCK #4462
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
