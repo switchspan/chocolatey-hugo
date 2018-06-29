@@ -2,8 +2,8 @@
 
 $packageName= $env:ChocolateyPackageName
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = "https://github.com/spf13/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-32bit.zip"
-$url64      = "https://github.com/spf13/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-64bit.zip"
+$url        = "https://github.com/gohugoio/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-32bit.zip"
+$url64      = "https://github.com/gohugoio/hugo/releases/download/v$($env:ChocolateyPackageVersion)/hugo_$($env:ChocolateyPackageVersion)_Windows-64bit.zip"
 
 $packageArgs = @{
   packageName   = $packageName
@@ -11,9 +11,9 @@ $packageArgs = @{
   url           = $url
   url64bit      = $url64
 
-  checksum      = 'ea67f201bf589b522b5303ef3825a1a19ffe0273c930fa0aa1ac2e31be7d9b1a'
+  checksum      = '362d917aa5be7b50fd82d18e02944c005f0f1b59eacd26682148ab4be4642fc3'
   checksumType  = 'sha256'
-  checksum64    = 'af90c6f269992a83bd5a6865c053ae2a58a0562f928061b064602ea5646937ed'
+  checksum64    = '6fda01b1ec22797c8257fd2d74a7b9411ffd6ac24ea9758b26b60900261c7384'
   checksumType64= 'sha256'
 }
 
