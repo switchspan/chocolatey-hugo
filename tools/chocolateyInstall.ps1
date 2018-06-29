@@ -18,4 +18,3 @@ $packageArgs = @{
 }
 
 Install-ChocolateyZipPackage @packageArgs
-https://github.com/gohugoio/hugo/releases/download/v0.42.2/hugo_0.42.2_Windows-32bit.zip
