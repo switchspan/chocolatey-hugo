@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.44</version>
+    <version>0.45</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,27 +119,44 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.44 ** July 12th 2018
+    <releaseNotes># **0.45** July 22nd 2018
 
 ## Notes
-    
-  * MediaType.Suffix is deprecated and replaced with a plural version, MediaType.Suffixes, with a more specific definition. You will get a detailed WARNING in the console if you need to do anything.
+
+* .Site.GetPage with more than 2 arguments will not work anymore. This means that {{ .Site.GetPage "page" "blog" "my-post.md" }} will fail. {{ .Site.GetPage "page" "blog/my-post.md" }} will work, but we recommend you use the simpler {{ .Site.GetPage "/blog/my-post.md" }}
+* Relative paths in relref or ref that finds its match not relative to the page itself will work, but we now print a warning saying that you should correct it to an absolute path.
 
 ## Enhancements
 
-  * Allow multiple file suffixes per media type b874a1ba @bep #4920
-  * Clean up the in-memory Resource reader usage 47d38628 @bep #4936
-  * Move opening of the transformed resources after cache check 0024dcfe @bep
-  * Improve type support in resources.Concat 306573de @bep #4934
-  * Flush partialCached cache on rebuilds 6b6dcb44 @bep #4931
-  * Include the transformation step in the error message d96f2a46 @bep #4924
-  * Exclude *.svg from CRLF/LF conversion 9c1e8208 @anthonyfok
+* Print a WARNING about relative non-relative ref/relref matches a451c49f @bep #4973
+* Allow untyped nil to be merged in lang.Merge ff16c42e @bep #4977
+* Get rid of the utils package 062510cf @bep
+* Update hugo_windows.go 4e1d0cd9 @bep
+* Add IncludePaths config option 166483fe @bep #4921
+* Increase refLinker test coverage 8278384b @vassudanagunta
+* Add test coverage for recent ref overhaul 2bac3715 @vassudanagunta #4969
+* Update ref, relref, GetPage docs 1eb8b36b @bep
+* Document refLinksErrorLevel and refLinksNotFoundURL 00c74ee7 @bep #4964
+* Add configurable ref/relref error handling and notFoundURL e25aa655 @bep #4964
+* Try node_modules/postcss-cli/bin/postcss first ebe4d39f @bep #4952
+* Add optional lang as argument to rel/relref d741064b @bep #4956
+* Simplify .Site.GetPage etc. 3eb313fe @bep #4147#4727#4728#4728#4726#4652
+* Unify page lookups b93417aa @vassudanagunta #4147#4727#4728#4728#4726#4652
+* Improve error message 4c240800 @bep
+* Remove unused code 2f2bc7ff @bep
 
-# Fixes
+## Fixes
 
-  * Fix resources.Concat for transformed resources beec1fc9 @bep #4936
-  * Fix static filesystem for themed multihost sites 80c8f3b8 @bep #4929
-  * Set permission of embedded templates to 0644 2b73e89d @anthonyfok
+* Avoid server panic on TOML mistake in i18n 75acff5f @bep #4942
+* Only set 'allThemes' if there are themes in the config file 38204c4a @garrmcnu #4851
+* Fix potential server panic with drafts/future enabled 1ab4658c @bep #4965
+* Mark shortcode changes as content changes in server mode 12679b40 @bep #4965
+* Fix source maps on Windows f01505c9 @bep #4968
+* Fix typo-logic bug in GetPage b56d9a12 @vassudanagunta
+* Enable test case fixed by commit 501543d d6fde8fa @vassudanagunta
+* Fix theme config for Work Fs 5c9d5413 @bep #4951
+* Fix addkit link to account for i18n fd1f4a78 @hairmare
+
 
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
