@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.47.1</version>
+    <version>0.48</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,19 +119,28 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.47.1** August 20th 2018
+    <releaseNotes># **0.48** August 30th 2018
 
-This is a bug-fix release with two fixes.
+## Enhancements
 
-## Fixes
+* Add a test for template variable overwrite 0c8a4154 @bep
+* Include language code in REF_NOT_FOUND errors 94d0e79d @bep #5110
+* Improve minifier MIME type resolution ebb56e8b @bep #5093
+* Update to Go 1.11 6b9934a2 @bep #5115
+* Set GO111MODULE=on for mage install c7f05779 @bep #5115
+* Add instruction to install PostCSS when missing 08d14113 @anthonyfok #5111
+* Update snapcraft build config to Go 1.11 94d6d678 @bep #5115
+* Use Go 1.11 modules with Mage 45c9c45d @bep #5115
+* Add go.mod fce32c07 @bep #5115
+* Update Travis to Go 1.11 and Go 1.10.4 d32ff16f @bep #5115
+* Skip installing postcss due to failure on build server 66f688f7 @anthonyfok
 
-  * Fix .Site.Params case regression fdff0d3a @bep #5094
-  * Do not strip IE conditional statements 5a0ee2b9 @bep #5089
+##Fixes
 
-### Updates to Linux Snap build
-
-  * Remove unused files from Git, Perl, etc. 834617f9 @anthonyfok
-  * Add nodejs to allow PostCSS to work ef20ec1f @anthonyfok
+* Keep end tags e6eda2a3 @vsopvsop
+* Fix permissions when creating new folders f4675fa0 @bep #5128
+* Fix handling of taxonomy terms containing slashes fff13253 @moorereason #4090
+* Fix build on armv7 8999de19 @caarlos0 #5101
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
