@@ -23,7 +23,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.48</version>
+    <version>0.49</version>
     <!-- <packageSourceUrl>Where is this Chocolatey package located (think GitHub)? packageSourceUrl is highly recommended for the community feed</packageSourceUrl>-->
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <!--<owners>__REPLACE_YOUR_NAME__</owners>-->
@@ -119,28 +119,80 @@ When reporting the issue, please provide the version of Hugo in use (`hugo versi
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
     <owners>switchspan</owners>
     <docsUrl>https://gohugo.io/overview/introduction/</docsUrl>
-    <releaseNotes># **0.48** August 30th 2018
+    <releaseNotes># **0.49** August 23rd 2018
 
 ## Enhancements
 
-* Add a test for template variable overwrite 0c8a4154 @bep
-* Include language code in REF_NOT_FOUND errors 94d0e79d @bep #5110
-* Improve minifier MIME type resolution ebb56e8b @bep #5093
-* Update to Go 1.11 6b9934a2 @bep #5115
-* Set GO111MODULE=on for mage install c7f05779 @bep #5115
-* Add instruction to install PostCSS when missing 08d14113 @anthonyfok #5111
-* Update snapcraft build config to Go 1.11 94d6d678 @bep #5115
-* Use Go 1.11 modules with Mage 45c9c45d @bep #5115
-* Add go.mod fce32c07 @bep #5115
-* Update Travis to Go 1.11 and Go 1.10.4 d32ff16f @bep #5115
-* Skip installing postcss due to failure on build server 66f688f7 @anthonyfok
+### Templates
 
-##Fixes
+* Allow first function to return an empty slice cae07ce8 @felicianotech #5235
+* Use safeHTMLAttr instead of safeHTML for HTML attributes 4f9c109d @felicianotech #5236
+* Add collections.Append (with alias append) e27fd4c1 @bep #5190
+* Improve type handling in collections.Slice fe6676c7 @bep #5188
+* Add group template func 6667c6d7 @bep #4865
+* Add strings.FirstUpper e5d66074 @bep #5174
 
-* Keep end tags e6eda2a3 @vsopvsop
-* Fix permissions when creating new folders f4675fa0 @bep #5128
-* Fix handling of taxonomy terms containing slashes fff13253 @moorereason #4090
-* Fix build on armv7 8999de19 @caarlos0 #5101
+### Core
+
+* Minor cleaning in the sorting code 2eed35c8 @bep
+* Make sure ambiguous lookups in GetPage gets an error 75e54345 @bep #5138
+* Allow creating page groups from any page collection cfda13b3 @vdanjean #4865
+* Do not FirstUpper taxonomy titles be3ae3ec @Schnouki #5172
+* Simplify some code e38e8812 @moorereason
+* Add missing error checks 0665a395 @moorereason
+* Remove extraneous createStaticFs call 1ed8c363 @moorereason
+
+### Other
+
+* Add "go mod download" to CI scripts cf47f43f @bep
+* Regenerate CLI docs 3b6bd121 @bep
+* Document group 8388cd90 @bep
+* Make Data.Integrity be of type template.HTMLAttr fe6a6f27 @bep
+* Add directory based archetypes 2650fa77 @bep #4535
+* Build on CircleCI outside of GOPATH ef525b15 @felicianotech #5135
+* Prevent symbolic links from themes f9168146 @bep
+* Update releasenotes_writer.go 4b82f748 @bep
+* Add docs for append df50c108 @bep #5190
+* Set minifier to KeepEndTags 9b26b548 @onedrawingperday
+* Make JSON minification more generic 3dafe206 @zinefer
+* Update Mage 37d64634 @bep
+* Update dependencies bb2fe814 @bep
+* Improve some godoc comments 30bc4ed0 @moorereason
+* Update to latest Mage 3b103cb7 @bep
+* Remove some duplicate code c15c7da4 @bep
+* Update Dockerfile to Go 1.11 bcbe57c6 @zyfdegh #5145
+* Init packages once ea8ef573 @bep
+* Update script to Go 1.11 293e1235 @bep #5127
+* Remove the remains of Go Dep fdf3c3b8 @bep #5115
+* Update CONTRIBUTING.md 312d2252 @bep
+* Update README.md f627903e @bep
+* Fix golint issues 400fe96a @moorereason
+* Fix golint godoc issues 3f45e729 @moorereason
+* Fix godoc comment e03eb90a @moorereason
+* Fix typo in private func name c915d0d3 @moorereason
+* Fix golint godoc issues f6f22ad9 @moorereason
+* Fix filepath issue in test d970327d @moorereason
+* Fix golint issues 0013bea9 @moorereason
+* Fix golint godoc issue ffaa73dc @moorereason
+* Fix golint godoc issue f8d8c854 @moorereason
+* Fix golint issue 10dc87bf @moorereason
+* Fix golint issues 7231869b @moorereason
+* Fix golint godoc issues 600047ff @moorereason
+* Fix golint issues 5f2e1cb8 @moorereason
+* Fix golint issues c8ce6504 @moorereason
+* Fix most golint issues a53f9623 @moorereason
+* Fix golint issues daffeec3 @moorereason
+* Fix golint errors b8b91f55 @moorereason
+* Fix golint issues f0effac8 @moorereason
+* Fix broken Travis config 2cf8fe2e @bep
+* Fix error message for go vet 47d4edce @mdhender
+
+## Fixes
+
+* Compare every element in pages cache ed4f1edb @bep #5239
+* Revise error handling in getJSON and getCSV 43d44652 @bep #5076
+* Show error on union or intersect of uncomparable types 4f72e791 @moorereason #3820
+* Do not set RSS as Kind in RSS output 555a5612 @bep #5138
 </releaseNotes>
     <packageSourceUrl>https://github.com/switchspan/chocolatey-hugo</packageSourceUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
