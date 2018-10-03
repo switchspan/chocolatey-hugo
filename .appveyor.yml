@@ -1,0 +1,15 @@
+version: 0.{build}
+environment:
+  TOKEN:  #[API_KEY_HERE] Go to "https://ci.appveyor.com/tools/encrypt" page in account menu to encrypt data and place secure key from chocolatey into it, and new account bound key here.
+    secure: fglJKa/F1FlVu+oA2uZDN3R0pE5iVGYVjP1EAR/0FvPjQB1hivwd5ujOdkplBQ+Q
+
+build_script:
+  - ps: choco pack
+
+test_script:
+  - ps: Get-Content .\tests.ps1 | PowerShell.exe -noprofile - #allows unsigned scripts to run
+
+deploy_script:
+  - ps: choco apiKey --key $env:TOKEN --source https://push.chocolatey.org/
+  - ps: $packageName = (Get-ChildItem hugo.*.nupkg).name
+  - ps: choco push $packageName --source https://push.chocolatey.org/
